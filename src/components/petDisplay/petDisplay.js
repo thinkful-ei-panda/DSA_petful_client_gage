@@ -8,9 +8,7 @@ export default class PetDisplay extends React.Component{
         petType = '',
     }
 
-
     render(){
-
 
         return(
             <div className='pet_info_main'>

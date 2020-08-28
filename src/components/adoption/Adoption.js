@@ -27,7 +27,7 @@ export default class Adoption extends React.Component {
               </div>
                 <div className="content-item">
                 <form onSubmit={this.handleRegistrationSubmit}>
-                    <h3>Register to Adopt</h3>
+                    <h3>Join the Queue</h3>
                     <p>Add your name to the adoption queue.</p>
                   <legend></legend>
                   <fieldset>
