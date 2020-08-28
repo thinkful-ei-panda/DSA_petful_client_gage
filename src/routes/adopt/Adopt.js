@@ -10,8 +10,8 @@ class Adopt extends React.Component{
     state = {
         error : null,
         regInput : '',
-        cats : {},
-        dogs : {},
+        cat : {},
+        dog : {},
         peopleInQueue : [],
     }
 
@@ -19,14 +19,16 @@ class Adopt extends React.Component{
     componentDidMount(){
         peopleApiCalls.getListOfPeopleInQueue()
         .then(persons =>{
+            console.log(persons)
             this.setState({peopleInQueue : persons})
         })
         .catch(e => this.setState({error : e}));
         petsApiCalls.getNextPets()
         .then(pets => {
+            console.log(pets)
             this.setState({
-                cat : pets.cats,
-                dog : pets.dogs
+                cat : pets.cat,
+                dog : pets.dog
             })
         })
         .catch(e => this.setState({error : e}))

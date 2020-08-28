@@ -3,6 +3,10 @@ const peopleApiCalls = {
     //get
     getListOfPeopleInQueue(){
         return fetch(`${process.env.REACT_APP_API_ADDRESS}/people`)
+        .then(res => (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
     },
 
     //post
@@ -18,6 +22,10 @@ const peopleApiCalls = {
             },
             body : JSON.stringify(person)
         })
+        .then(res => (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
     }
 }
 
