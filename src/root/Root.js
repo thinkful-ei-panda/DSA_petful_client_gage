@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Route, Switch} from 'react-router-dom'
 
 import Home from '../routes/home/Home'
-import Adoption from '../routes/adoption/Adoption'
+import Adoption from '../routes/adopt/Adopt'
 
 function Root() {
   return <div>
