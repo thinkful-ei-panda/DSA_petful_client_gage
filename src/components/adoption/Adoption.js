@@ -1,7 +1,16 @@
 import React from 'react';
+// import PetDisplay from '../../components/petDisplay/PetDisplay'
+// import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
 
 export default class Adoption extends React.Component {
     
+  state = {
+    error : null,
+    regInput : '',
+    cat : {},
+    dog : {},
+    peopleInQueue : [],
+  }
   
     render() {
     //   const {error} = this.state
@@ -16,6 +25,7 @@ export default class Adoption extends React.Component {
             <div className="content-column-left">
             <div className="content-item">
                     <h3>Currently Up For Adoption</h3>
+                    {/* <PetDisplay /> */}
                 {/* {error && <div>{error.error}</div>} */}
               </div>
             </div>
@@ -23,12 +33,13 @@ export default class Adoption extends React.Component {
               <div className="content-item">
                     <h3>Adoption Queue</h3>
                     <p>The person at the top of the queue has 5 seconds to adopt the current pet.</p>
+                    {/* <PeopleDisplay /> */}
                 {/* {error && <div>{error.error}</div>} */}
               </div>
                 <div className="content-item">
                 <form onSubmit={this.handleRegistrationSubmit}>
                     <h3>Join the Queue</h3>
-                    <p>Add your name to the adoption queue.</p>
+                    <p>Add your name to join the adoption queue.</p>
                   <legend></legend>
                   <fieldset>
                       <div>
