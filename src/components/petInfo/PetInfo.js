@@ -3,7 +3,6 @@ import React from 'react';
 export default class PetInfo extends React.Component{
 
     static defaultProp = {
-
         age : '',
         breed : '',
         description :'',
