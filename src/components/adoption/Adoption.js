@@ -33,7 +33,7 @@ export default class Adoption extends React.Component {
                   <fieldset>
                       <div>
                         <label htmlFor="name" className="hidden">Name</label>
-                        <input name="name" id="name" placeholder="name"/>
+                        <input name="name" value='' id="name" placeholder="name"/>
                       </div>
                       <div>
                         <button className="button">Register</button>
