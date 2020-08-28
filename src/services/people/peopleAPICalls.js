@@ -26,6 +26,18 @@ const peopleApiCalls = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
         )
+    },
+    dequeueUserFromQueue(){
+        return fetch(`${process.env.REACT_APP_API_ADDRESS}/people`, {
+            method : 'DELETE',
+            headers : {
+                'content-type' : 'application/json',
+            }
+        })
+        .then(res => (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
     }
 }
 

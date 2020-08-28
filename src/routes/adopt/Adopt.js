@@ -13,6 +13,8 @@ class Adopt extends React.Component{
         cat : {},
         dog : {},
         peopleInQueue : [],
+        type : '',
+        user : ''
     }
 
     componentDidMount(){
@@ -36,20 +38,44 @@ class Adopt extends React.Component{
         this.setState({error : null})
     }
 
-    handleRegistration = (ev) => {
 
+
+    handleRegistration = () => {
+        peopleApiCalls.postNewUserIntoQueue(this.state.regInput)
+        .catch(e=> this.setState({error : e }))
+        this.setState({regInput : ''});
+    }
+
+    handleRegistrationInput = (ev)=> {
+        ev.preventDefault();
+        this.setState({regInput : ev.target.value})
     }
 
     handleAdoption = (ev) => {
-
+        ev.preventDefault();
+        //can only take in __cats__ or __dogs__  i.e. ev.target.id == cats  
+        petsApiCalls.removePetFromQueue({ type : ev.target.id})
+    }
+    handleRandomAdoption =()=>{
+        const catOrDog = ['cats','dogs']
+        let randomType = catOrDog[Math.floor(Math.random() * Math.floor(1))]
+        petsApiCalls.removePetFromQueue({type :randomType});
+        peopleApiCalls.dequeueUserFromQueue();
     }
 
     handleQueueMovement = () =>{
-
+        if(this.state.user){
+            while(this.state.peopleInQueue.length > 1){
+                setTimeout(this.handleRandomAdoption(),5000)
+            }
+            while(this.state.user === this.state.peopleInQueue[0]){
+                /**add new user */
+            }
+        }
     }
 
     render(){
-
+        const {cat,dog,peopleInQueue} = this.state; 
         return(
             <div>
                 <Adoption/>
