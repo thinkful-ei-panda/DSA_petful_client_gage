@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Sulphur+Point:wght@300;400;700&display=swap');
+
+.container {
+    max-width: 80%;
+    margin: auto;
+}
+
+body {
+    color:white;
+    background-color: #232635;
+    background: url("./img/dog-home.jpg") center center / cover no-repeat;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.content-center {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    
+        /* Take full size */
+        height: 100vh;
+        width: 100%;
+}
+
+.intro-message{
+    max-width:60%;
+}
+
+h1, h2 {
+    font-family: 'Sulphur Point', sans-serif;
+    margin: 0 0 0 0;
+}
+
+h2 {
+    font-size:2rem;
+    text-transform: uppercase;
+}
+
+p {
+    margin-top:0px;
+}
+
+.button {
+    padding:15px 30px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 3px;
+}
+
+fieldset {
+    border:0px;
+}
+
+label {
+    display: flex;
+}
+
+input {
+    color:white;
+    background-color: transparent;
+    border-bottom:2px solid white;
+    margin-bottom: 15px;
+    padding:15px;
+    width:100%;
+    border-width: 0 0 2px 0;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
+    border-image: initial;
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
+
+.hidden {
+    display:none;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: white;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: white;
+  }
+  
+  /* selected link */
+  a:active {
+    color: white;
+  }
+
+@media screen and (max-width: 600px) {
+
+    .intro-message{
+        max-width:100%;
+    }
+
+    h2 {
+        font-size:1.5rem;
+    }
+
+}

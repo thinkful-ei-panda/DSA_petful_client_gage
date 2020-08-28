@@ -7,12 +7,10 @@ export default class PetInfo extends React.Component{
         petGender = '',
         petAge ='',
         petBreed ='',
-        petStory ='',
+        petStory =''
     }
 
-
     render(){
-
 
         return(
             <div className='pet_info_main'>

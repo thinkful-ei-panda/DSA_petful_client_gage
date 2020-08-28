@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Introduction = (props) =>{
 
     return (
-        <div>
-            <h2>hello welcome to get your pet and GTFO</h2>
-            <p>no one cares about pets like we do. that's for sure, all are staff suffer from </p>
-            <p>chronic depression since we seen so many pets that fell in love with leave us.</p>
-            <p>We Know there going to a good home, but that doesn't mean that id doesn't heart to watch them go</p>
+        <div className='content-center'>
+            <h2>Welcome to Petful</h2>
+            <p className="intro-message">No one cares about pets like we do. All of our staff suffer chronic depression from seeing so many pets that we've fallen in love with leave us. We Know they're going to a good home, but that doesn't mean that it doesn't hurt to watch them go.</p>
+            <Link to='/adoption'>
+                <button className='button'>Adopt a Pet</button>
+            </Link>
         </div>
     )
 }

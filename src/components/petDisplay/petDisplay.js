@@ -1,6 +1,7 @@
 import React from 'react';
+import PetInfo from './components/PetInfo';
 
-export default class PetInfo extends React.Component{
+export default class PetDisplay extends React.Component{
 
     static defaultProp = {
         petImage =null,
