@@ -79,6 +79,7 @@ class Adopt extends React.Component{
         return(
             <div>
                 <Adoption/>
+                
             </div>
         )
     }
