@@ -56,13 +56,19 @@ class Adopt extends React.Component{
         //can only take in __cats__ or __dogs__  i.e. ev.target.id == cats  
         petsApiCalls.removePetFromQueue({ type : ev.target.id})
     }
+
+    /**
+     * handles random pick of pet ad dequeueing 
+     */
     handleRandomAdoption =()=>{
         const catOrDog = ['cats','dogs']
         let randomType = catOrDog[Math.floor(Math.random() * Math.floor(1))]
         petsApiCalls.removePetFromQueue({type :randomType});
         peopleApiCalls.dequeueUserFromQueue();
     }
-
+    /**
+     * should work only when user has made an user 
+     */
     handleQueueMovement = () =>{
         if(this.state.user){
             while(this.state.peopleInQueue.length > 1){
@@ -78,7 +84,14 @@ class Adopt extends React.Component{
         const {cat,dog,peopleInQueue} = this.state; 
         return(
             <div>
-                <Adoption/>
+                <Adoption
+                cat={cat}
+                dog={dog}
+                peopleInQueue={peopleInQueue}
+                handleAdoption={this.handleAdoption}
+                handleRegistrationInput={this.handleRegistrationInput}
+                handleRegistration={this.handleRegistration}
+                />
             </div>
         )
     }

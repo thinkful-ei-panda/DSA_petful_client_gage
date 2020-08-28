@@ -1,15 +1,18 @@
 import React from 'react';
-// import PetDisplay from '../../components/petDisplay/PetDisplay'
-// import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
+ import PetDisplay from '../petDisplay/petDisplay'
+ import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
 
 export default class Adoption extends React.Component {
     
-  state = {
+  static defaultProps = {
     error : null,
     regInput : '',
     cat : {},
     dog : {},
     peopleInQueue : [],
+    handleAdoption : () => {},
+    handleRegistrationInput : () => {},
+    handleRegistration : () =>{},
   }
   
     render() {
@@ -25,19 +28,27 @@ export default class Adoption extends React.Component {
             <div className="content-column-left">
             <div className="content-item">
                     <h3>Currently Up For Adoption</h3>
-                    {/* <PetDisplay /> */}
-                {/* {error && <div>{error.error}</div>} */}
+                    <PetDisplay
+                    handleAdoption={this.props.handleAdoption}
+                    cat={this.props.cat}
+                    dog={this.props.dog}
+                    />
+                {/* {this.props.error && <div>{this.props.error.error}</div>} */}
               </div>
             </div>
               <div className="content-column-right">
               <div className="content-item">
                     <h3>Adoption Queue</h3>
                     <p>The person at the top of the queue has 5 seconds to adopt the current pet.</p>
-                    {/* <PeopleDisplay /> */}
-                {/* {error && <div>{error.error}</div>} */}
+                    <PeopleDisplay
+                      people={this.props.peopleInQueue}
+                    />
+                {/* {this.props.error && <div>{this.props.error.error}</div>} */}
               </div>
                 <div className="content-item">
-                <form onSubmit={this.handleRegistrationSubmit}>
+                <form
+                  onChange={this.props.handleRegistrationInput}
+                 onSubmit={this.handleRegistration}>
                     <h3>Join the Queue</h3>
                     <p>Add your name to join the adoption queue.</p>
                   <legend></legend>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PeopleInfo from '../..components/peopleInfo/PeopleInfo'
+import PeopleInfo from '../peopleInfo/PeopleInfo'
 
 export default class PeopleDisplay extends React.Component{
 
