@@ -17,7 +17,6 @@ class Adopt extends React.Component{
         user : ''
     }
 
-
     componentDidMount(){
         peopleApiCalls.getListOfPeopleInQueue()
         .then(persons =>{
@@ -38,6 +37,7 @@ class Adopt extends React.Component{
     componentWillUnmount(){
         this.setState({error : null})
     }
+
 
 
     handleRegistration = () => {

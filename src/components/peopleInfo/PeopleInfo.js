@@ -6,4 +6,13 @@ export default class PeopleInfo extends React.Component{
         people : [],
     }
 
+    render() {
+
+        return (
+            <div>
+            </div>
+        )
+
+    }
+
 }
