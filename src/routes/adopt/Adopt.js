@@ -13,6 +13,7 @@ class Adopt extends React.Component{
         cat : {},
         dog : {},
         peopleInQueue : [],
+        type : ''
     }
 
 
@@ -38,12 +39,20 @@ class Adopt extends React.Component{
     }
 
 
-    handleRegistration = (ev) => {
-
+    handleRegistration = () => {
+        peopleApiCalls.postNewUserIntoQueue(this.state.regInput)
+        .catch(e=> this.setState({error : e }))
+        this.setState({regInput : ''});
+    }
+    
+    handleRegistrationInput = (ev)=> {
+        ev.preventDefault();
+        this.setState({regInput : ev.target.value})
     }
 
     handleAdoption = (ev) => {
-
+        ev.preventDefault();
+        petsApiCalls.removePetFromQueue({ type : ev.target.id})
     }
 
     handleQueueMovement = () =>{
@@ -51,7 +60,7 @@ class Adopt extends React.Component{
     }
 
     render(){
-
+        const {cat,dog,peopleInQueue} = this.state; 
         return(
             <div>
                 <Adoption/>
