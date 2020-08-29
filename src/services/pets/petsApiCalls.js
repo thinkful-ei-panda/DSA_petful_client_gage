@@ -27,7 +27,7 @@ const petsApiCalls = {
      */
     getNextPets(){
         return fetch(`${process.env.REACT_APP_API_ADDRESS}/pets`)
-            .then(res => (!res.ok)
+            .then(res => console.log(res.json()) (!res.ok)
             ? res.json().then(e => Promise.reject(e))
             : res.json()
             )

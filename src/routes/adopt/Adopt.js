@@ -20,13 +20,11 @@ class Adopt extends React.Component{
     componentDidMount(){
         peopleApiCalls.getListOfPeopleInQueue()
         .then(persons =>{
-            console.log(persons)
             this.setState({peopleInQueue : persons})
         })
         .catch(e => this.setState({error : e}));
         petsApiCalls.getNextPets()
         .then(pets => {
-            console.log(pets)
             this.setState({
                 cat : pets.cat,
                 dog : pets.dog

@@ -40,7 +40,6 @@ export default class PetInfo extends React.Component{
                     <h4>Gender:</h4> <span>{gender}</span>
                     <h4>Age:</h4> <span>{age}</span>
                     <h4>{`${name}'s story:`}</h4> <span>{story}</span>
-                    <h4>Description:</h4> <span>{description}</span>
                 <button onClick={this.props.handleAdoption} className='button' id={this.props.type}>Adopt Me</button>
                 </div>
             </div>
