@@ -1,7 +1,19 @@
 import React from 'react';
+import PetDisplay from '../petDisplay/petDisplay'
+import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
 
 export default class Adoption extends React.Component {
     
+  static defaultProps = {
+    error : null,
+    regInput : '',
+    cat : {},
+    dog : {},
+    peopleInQueue : [],
+    handleAdoption : () => {},
+    handleRegistrationInput : () => {},
+    handleRegistration : () =>{},
+  }
   
     render() {
     //   const {error} = this.state
@@ -16,24 +28,34 @@ export default class Adoption extends React.Component {
             <div className="content-column-left">
             <div className="content-item">
                     <h3>Currently Up For Adoption</h3>
-                {/* {error && <div>{error.error}</div>} */}
+                    <PetDisplay
+                    handleAdoption={this.props.handleAdoption}
+                    cat={this.props.cat}
+                    dog={this.props.dog}
+                    />
+                {/* {this.props.error && <div>{this.props.error.error}</div>} */}
               </div>
             </div>
               <div className="content-column-right">
               <div className="content-item">
                     <h3>Adoption Queue</h3>
-                    <p>The person at the top of the queue has 5 seconds to adopt the current pet.</p>
-                {/* {error && <div>{error.error}</div>} */}
+                    <p>The person at the top of the queue has 5 seconds to adopt either pet.</p>
+                    <PeopleDisplay
+                      people={this.props.peopleInQueue}
+                    />
+                {/* {this.props.error && <div>{this.props.error.error}</div>} */}
               </div>
                 <div className="content-item">
-                <form onSubmit={this.handleRegistrationSubmit}>
-                    <h3>Register to Adopt</h3>
-                    <p>Add your name to the adoption queue.</p>
+                <form
+                  onChange={this.props.handleRegistrationInput}
+                 onSubmit={this.handleRegistration}>
+                    <h3>Join the Queue</h3>
+                    <p>Add your name to join the adoption queue.</p>
                   <legend></legend>
                   <fieldset>
                       <div>
                         <label htmlFor="name" className="hidden">Name</label>
-                        <input name="name" value='' id="name" placeholder="name"/>
+                        <input name="name" value={this.props.val} id="name" placeholder="name"/>
                       </div>
                       <div>
                         <button className="button">Register</button>

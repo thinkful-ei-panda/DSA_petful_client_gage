@@ -14,20 +14,17 @@ class Adopt extends React.Component{
         dog : {},
         peopleInQueue : [],
         type : '',
-        user : ''
+        user : '', 
     }
-
 
     componentDidMount(){
         peopleApiCalls.getListOfPeopleInQueue()
         .then(persons =>{
-            console.log(persons)
             this.setState({peopleInQueue : persons})
         })
         .catch(e => this.setState({error : e}));
         petsApiCalls.getNextPets()
         .then(pets => {
-            console.log(pets)
             this.setState({
                 cat : pets.cat,
                 dog : pets.dog
@@ -40,6 +37,7 @@ class Adopt extends React.Component{
     }
 
 
+
     handleRegistration = () => {
         peopleApiCalls.postNewUserIntoQueue(this.state.regInput)
         .catch(e=> this.setState({error : e }))
@@ -47,22 +45,42 @@ class Adopt extends React.Component{
     }
 
     handleRegistrationInput = (ev)=> {
+        console.log(ev)
         ev.preventDefault();
         this.setState({regInput : ev.target.value})
     }
 
+    /**
+     * 
+     * @TODO fix setState problem where it wont reRender on click 
+     */
     handleAdoption = (ev) => {
         ev.preventDefault();
+
         //can only take in __cats__ or __dogs__  i.e. ev.target.id == cats  
         petsApiCalls.removePetFromQueue({ type : ev.target.id})
+        petsApiCalls.getNextPets()
+        .then(pets => {
+            this.setState({
+                cat : pets.cat,
+                dog : pets.dog
+            })
+        })
+        .catch(e => this.setState({error : e}))
     }
+
+    /**
+     * handles random pick of pet ad dequeueing 
+     */
     handleRandomAdoption =()=>{
         const catOrDog = ['cats','dogs']
         let randomType = catOrDog[Math.floor(Math.random() * Math.floor(1))]
         petsApiCalls.removePetFromQueue({type :randomType});
         peopleApiCalls.dequeueUserFromQueue();
     }
-
+    /**
+     * should work only when user has made an user 
+     */
     handleQueueMovement = () =>{
         if(this.state.user){
             while(this.state.peopleInQueue.length > 1){
@@ -78,8 +96,15 @@ class Adopt extends React.Component{
         const {cat,dog,peopleInQueue} = this.state; 
         return(
             <div>
-                <Adoption/>
-                
+                <Adoption
+                cat={cat}
+                dog={dog}
+                peopleInQueue={peopleInQueue}
+                handleAdoption={this.handleAdoption}
+                handleRegistrationInput={this.handleRegistrationInput}
+                val={this.state.regInput}
+                handleRegistration={this.handleRegistration}
+                />
             </div>
         )
     }
