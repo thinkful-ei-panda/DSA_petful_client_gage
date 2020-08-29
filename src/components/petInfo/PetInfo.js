@@ -35,12 +35,12 @@ export default class PetInfo extends React.Component{
         return(
             <div className='pet_info_main'>
                 <div className='pet_text_info'>
-                    <h6>Name:</h6> <span>{name}</span>
-                    <h6>Gender:</h6> <span>{gender}</span>
-                    <h6>Age:</h6> <span>{age}</span>
-                    <h6>Breed:</h6> <span>{breed}</span>
-                    <h6>{`${name}'s story:`}</h6> <span>{story}</span>
-                    <h6>description :</h6> <span>{description}</span>
+                    <h4>Gender:</h4> <span>{gender}</span>
+                    <h4>Name:</h4> <span>{name}</span>
+                    <h4>Age:</h4> <span>{age}</span>
+                    <h4>Breed:</h4> <span>{breed}</span>
+                    <h4>{`${name}'s story:`}</h4> <span>{story}</span>
+                    <h4>Description :</h4> <span>{description}</span>
                 </div>
                 <button onClick={this.props.handleAdoption} className='adopt_pet' id={this.props.type}></button>
             </div>
