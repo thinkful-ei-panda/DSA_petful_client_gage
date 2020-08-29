@@ -12,7 +12,9 @@ export default class PeopleDisplay extends React.Component{
 
         return (
             <div>
-                <PeopleInfo />
+                <PeopleInfo
+                people={this.props.people}
+                />
             </div>
         )
 
