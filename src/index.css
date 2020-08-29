@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Sulphur+Point:wght@300;400;700&display=swap');
 
-.container {
-    max-width: 80%;
-    margin: auto;
-}
 
 body {
     color:white;
@@ -12,6 +8,11 @@ body {
     font-weight: 300;
     margin:0px;
     background-image: linear-gradient(to bottom right, #232635, #4b4e5f);
+}
+
+.container {
+    max-width: 80%;
+    margin: auto;
 }
 
 .content-center {
@@ -133,7 +134,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    margin: 15px 0 0 15px;
+    margin: 15px 0 0 0px;
 }
 
 h2 {
