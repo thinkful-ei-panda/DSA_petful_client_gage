@@ -20,8 +20,8 @@ export default class PetDisplay extends React.Component{
     render(){
 
         return(
-            <div className='pet_info_main'>
-                <div className='pet-content'>
+            <div>
+                <div>
                     <img src={this.props.cat.imageURL} alt={this.props.cat.description}/>
                     <PetInfo
                     handleAdoption={this.props.handleAdoption}
