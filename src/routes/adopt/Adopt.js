@@ -25,7 +25,6 @@ class Adopt extends React.Component{
         .catch(e => this.setState({error : e}));
         petsApiCalls.getNextPets()
         .then(pets => {
-            console.log(pets.cat)
             this.setState({
                 cat : pets.cat,
                 dog : pets.dog
@@ -40,12 +39,14 @@ class Adopt extends React.Component{
 
 
     handleRegistration = () => {
+
         peopleApiCalls.postNewUserIntoQueue(this.state.regInput)
         .catch(e=> this.setState({error : e }))
         this.setState({regInput : ''});
     }
 
     handleRegistrationInput = (ev)=> {
+        console.log(ev)
         ev.preventDefault();
         this.setState({regInput : ev.target.value})
     }
@@ -54,6 +55,14 @@ class Adopt extends React.Component{
         ev.preventDefault();
         //can only take in __cats__ or __dogs__  i.e. ev.target.id == cats  
         petsApiCalls.removePetFromQueue({ type : ev.target.id})
+        petsApiCalls.getNextPets()
+        .then(pets => {
+            this.setState({
+                cat : pets.cat,
+                dog : pets.dog
+            })
+        })
+        .catch(e => this.setState({error : e}))
     }
 
     /**
@@ -89,6 +98,7 @@ class Adopt extends React.Component{
                 peopleInQueue={peopleInQueue}
                 handleAdoption={this.handleAdoption}
                 handleRegistrationInput={this.handleRegistrationInput}
+                val={this.state.regInput}
                 handleRegistration={this.handleRegistration}
                 />
             </div>

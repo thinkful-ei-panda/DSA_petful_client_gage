@@ -1,6 +1,6 @@
 import React from 'react';
- import PetDisplay from '../petDisplay/petDisplay'
- import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
+import PetDisplay from '../petDisplay/petDisplay'
+import PeopleDisplay from '../../components/peopleDisplay/PeopleDisplay'
 
 export default class Adoption extends React.Component {
     
@@ -55,7 +55,7 @@ export default class Adoption extends React.Component {
                   <fieldset>
                       <div>
                         <label htmlFor="name" className="hidden">Name</label>
-                        <input name="name" value='' id="name" placeholder="name"/>
+                        <input name="name" value={this.props.val} id="name" placeholder="name"/>
                       </div>
                       <div>
                         <button className="button">Register</button>
