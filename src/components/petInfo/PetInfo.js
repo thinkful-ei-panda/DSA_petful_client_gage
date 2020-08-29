@@ -49,7 +49,7 @@ export default class PetInfo extends React.Component{
                     handleQueueMovement={this.props.handleQueueMovement}
                     type={type}
                     handleAdoption={this.props.handleAdoption}
-                    />}   
+                    />  
                 </div>
             </div>
         )
