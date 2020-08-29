@@ -1,4 +1,5 @@
 import React from 'react';
+import AdoptButton from '../adoptButton/AdoptButton'
 
 export default class PetInfo extends React.Component{
 
@@ -22,6 +23,9 @@ export default class PetInfo extends React.Component{
             story : '',
             type : '',
         },
+        user : '', 
+        peopleInQueue : ['',],
+        handleQueueMovement : ()=>{},
         handleAdoption : () =>{}, 
     }
 
@@ -39,7 +43,12 @@ export default class PetInfo extends React.Component{
                     <h4>Gender:</h4> <span>{gender}</span>
                     <h4>Age:</h4> <span>{age}</span>
                     <h4>{`${name}'s story:`}</h4> <span>{story}</span>
-                <button onClick={this.props.handleAdoption} className='button' id={type}>Adopt Me</button>
+                    {(this.props.user === this.props.peopleInQueue) && 
+                    <AdoptButton
+                    handleQueueMovement={this.props.handleQueueMovement}
+                    type={type}
+                    handleAdoption={this.props.handleAdoption}
+                    />}
             </div>
         )
     }

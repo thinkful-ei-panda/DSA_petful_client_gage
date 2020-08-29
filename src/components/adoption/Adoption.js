@@ -32,6 +32,9 @@ export default class Adoption extends React.Component {
                 handleAdoption={this.props.handleAdoption}
                 cat={this.props.cat}
                 dog={this.props.dog}
+                user={this.props.user}
+                handleQueueMovement={this.handleQueueMovement}
+                peopleInQueue={this.props.peopleInQueue}
               />
               {/* {this.props.error && <div>{this.props.error.error}</div>} */}
             </div>

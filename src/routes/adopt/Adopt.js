@@ -113,6 +113,8 @@ class Adopt extends React.Component{
                 handleRegistrationInput={this.handleRegistrationInput}
                 val={this.state.regInput}
                 handleRegistration={this.handleRegistration}
+                user={this.state.user}
+                handleQueueMovement={this.handleQueueMovement}
                 />
             </div>
         )
