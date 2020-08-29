@@ -4,6 +4,7 @@ import Adoption from '../../components/adoption/Adoption'
 
 import peopleApiCalls from '../../services/people/peopleAPICalls'
 import petsApiCalls from '../../services/pets/petsApiCalls'
+import store from '../../services/store/store';
 
 class Adopt extends React.Component{
 
@@ -17,7 +18,7 @@ class Adopt extends React.Component{
         user : '', 
     }
 
-    componentDidMount(){
+    componentDidMount = () =>{
         peopleApiCalls.getListOfPeopleInQueue()
         .then(persons =>{
             this.setState({peopleInQueue : persons})
@@ -32,20 +33,26 @@ class Adopt extends React.Component{
         })
         .catch(e => this.setState({error : e}))
     }
-    componentWillUnmount(){
+    componentWillUnmount =()=>{
         this.setState({error : null})
     }
 
 
 
-    handleRegistration = () => {
+    /**
+     * 
+     * @todo make sure that i reRenders the list of users 
+     */
+    handleRegistration = (e) => {
+        e.preventDefault();
         peopleApiCalls.postNewUserIntoQueue(this.state.regInput)
         .catch(e=> this.setState({error : e }))
-        this.setState({regInput : ''});
+        this.setState({user : this.state.regInput})
+        this.setState({regInput : '',});
+        console.log(this.state.peopleInQueue)
     }
 
-    handleRegistrationInput = (ev)=> {
-        console.log(ev)
+    handleRegistrationInput = (ev) => {
         ev.preventDefault();
         this.setState({regInput : ev.target.value})
     }
@@ -72,7 +79,7 @@ class Adopt extends React.Component{
     /**
      * handles random pick of pet ad dequeueing 
      */
-    handleRandomAdoption =()=>{
+    handleRandomAdoption = () =>{
         const catOrDog = ['cats','dogs']
         let randomType = catOrDog[Math.floor(Math.random() * Math.floor(1))]
         petsApiCalls.removePetFromQueue({type :randomType});
@@ -81,13 +88,15 @@ class Adopt extends React.Component{
     /**
      * should work only when user has made an user 
      */
-    handleQueueMovement = () =>{
+    handleQueueMovement = () => {
         if(this.state.user){
             while(this.state.peopleInQueue.length > 1){
                 setTimeout(this.handleRandomAdoption(),5000)
             }
-            while(this.state.user === this.state.peopleInQueue[0]){
-                /**add new user */
+            while(this.state.user === this.state.peopleInQueue[0] && this.state.peopleInQueue.length < 6){
+                let randomUser = store.people[Math.floor(Math.random()*Math.floor(store.people.length))]
+                peopleApiCalls.postNewUserIntoQueue(randomUser)
+                .catch(e=> this.setState({error : e }))
             }
         }
     }

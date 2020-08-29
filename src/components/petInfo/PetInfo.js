@@ -28,7 +28,6 @@ export default class PetInfo extends React.Component{
     render(){
         const {age,
               breed,
-              description,
               gender,
               name,
               story } = this.props[this.props.type]
