@@ -25,6 +25,7 @@ class Adopt extends React.Component{
         .catch(e => this.setState({error : e}));
         petsApiCalls.getNextPets()
         .then(pets => {
+            console.log(pets.cat)
             this.setState({
                 cat : pets.cat,
                 dog : pets.dog
