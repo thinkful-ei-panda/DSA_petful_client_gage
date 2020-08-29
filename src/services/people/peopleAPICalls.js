@@ -20,7 +20,7 @@ const peopleApiCalls = {
             headers : {
                 'content-type' : 'application/json',
             },
-            body : JSON.stringify(person)
+            body : JSON.stringify({person:person})
         })
         .then(res => (!res.ok)
         ? res.json().then(e => Promise.reject(e))
