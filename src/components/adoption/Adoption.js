@@ -46,8 +46,10 @@ export default class Adoption extends React.Component {
                 The person at the top of the queue has 5 seconds to adopt either
                 pet.
               </p>
+              <div className="queue">
               <PeopleDisplay people={this.props.peopleInQueue} />
               {/* {this.props.error && <div>{this.props.error.error}</div>} */}
+              </div>
             </div>
             <div className="content-item">
               <form
