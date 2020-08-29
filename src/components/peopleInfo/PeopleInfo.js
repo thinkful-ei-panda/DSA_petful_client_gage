@@ -6,10 +6,12 @@ export default class PeopleInfo extends React.Component{
         people : [],
     }
 
+
     render() {
 
         return (
             <div>
+                {this.props.people.map((person,i) => <p key={i}>{person}</p>)}
             </div>
         )
 
