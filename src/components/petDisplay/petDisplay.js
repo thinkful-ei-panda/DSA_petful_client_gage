@@ -21,18 +21,24 @@ export default class PetDisplay extends React.Component{
 
         return(
             <div>
-                <img src={this.props.cat.imageURL} alt={this.props.cat.description}/>
-                <PetInfo
-                handleAdoption={this.props.handleAdoption}
-                type={'cat'}
-                cat={this.props.cat}
-                />
-                <img src={this.props.dog.imageURL} alt={this.props.dog.description}/>
-                <PetInfo
-                handleAdoption={this.props.handleAdoption}
-                type={'dog'}
-                dog={this.props.dog}
-                />
+                <div className="pet-content">
+                <div className="pet-content-column-left">
+                    <img src={this.props.cat.imageURL} alt={this.props.cat.description}/>
+                    <PetInfo
+                    handleAdoption={this.props.handleAdoption}
+                    type={'cat'}
+                    cat={this.props.cat}
+                    />
+                </div>
+                <div className="pet-content-column-right">
+                    <img src={this.props.dog.imageURL} alt={this.props.dog.description}/>
+                    <PetInfo
+                    handleAdoption={this.props.handleAdoption}
+                    type={'dog'}
+                    dog={this.props.dog}
+                    />
+                </div>
+                </div>
             </div>
         )
     }

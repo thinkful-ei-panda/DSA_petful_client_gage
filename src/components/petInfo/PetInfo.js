@@ -34,12 +34,14 @@ export default class PetInfo extends React.Component{
               let type = `${this.props.type}s`
         return(
             <div>
-                    <h4>Name:</h4> <span>{name}</span>
-                    <h4>Breed:</h4> <span>{breed}</span>
-                    <h4>Gender:</h4> <span>{gender}</span>
-                    <h4>Age:</h4> <span>{age}</span>
-                    <h4>{`${name}'s story:`}</h4> <span>{story}</span>
-                <button onClick={this.props.handleAdoption} className='button' id={type}>Adopt Me</button>
+                <h4>Name:</h4> <span>{name}</span>
+                <h4>Breed:</h4> <span>{breed}</span>
+                <h4>Gender:</h4> <span>{gender}</span>
+                <h4>Age:</h4> <span>{age}</span>
+                <h4>{`${name}'s story:`}</h4> <span>{story}</span>
+                <div>
+                    <button onClick={this.props.handleAdoption} className='button' id={type}>Adopt Me</button>
+                </div>
             </div>
         )
     }
