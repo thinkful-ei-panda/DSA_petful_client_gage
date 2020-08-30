@@ -49,8 +49,7 @@ class Adopt extends React.Component{
         .catch(e=> this.setState({error : e }))
         this.setState({user : this.state.regInput})
         this.setState({regInput : '',});
-        console.log(this.state.peopleInQueue)
-    }
+        this.handleRandomAdoption()    }
 
     handleRegistrationInput = (ev) => {
         ev.preventDefault();
@@ -81,7 +80,7 @@ class Adopt extends React.Component{
      */
     handleRandomAdoption = () =>{
         const catOrDog = ['cats','dogs']
-        let randomType = catOrDog[Math.floor(Math.random() * Math.floor(1))]
+        let randomType = catOrDog[Math.floor(Math.random() * Math.floor(2))]
         petsApiCalls.removePetFromQueue({type :randomType});
         peopleApiCalls.dequeueUserFromQueue();
     }
@@ -90,7 +89,7 @@ class Adopt extends React.Component{
      */
     handleQueueMovement = () => {
         if(this.state.user){
-            while(this.state.peopleInQueue.length > 1){
+            while(this.state.peopleInQueue.length !== 1){
                 setTimeout(this.handleRandomAdoption(),5000)
             }
             while(this.state.user === this.state.peopleInQueue[0] && this.state.peopleInQueue.length < 6){

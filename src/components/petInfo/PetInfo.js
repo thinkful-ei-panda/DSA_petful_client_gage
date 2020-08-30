@@ -24,18 +24,22 @@ export default class PetInfo extends React.Component{
             type : '',
         },
         user : '', 
-        peopleInQueue : ['',],
+        peopleInQueue : [],
         handleQueueMovement : ()=>{},
         handleAdoption : () =>{}, 
     }
 
+    
+    
     render(){
         const {age,
               breed,
               gender,
               name,
-              story } = this.props[this.props.type]
+              story} = this.props[this.props.type]
               let type = `${this.props.type}s`
+
+
         return(
             <div>
 
@@ -45,11 +49,12 @@ export default class PetInfo extends React.Component{
                 <h4>Age:</h4> <span>{age}</span>
                 <h4>{`${name}'s story:`}</h4> <span>{story}</span>
                 <div>
+                    {this.props.user && 
                     <AdoptButton
                     handleQueueMovement={this.props.handleQueueMovement}
                     type={type}
                     handleAdoption={this.props.handleAdoption}
-                    />  
+                    />}  
                 </div>
             </div>
         )
