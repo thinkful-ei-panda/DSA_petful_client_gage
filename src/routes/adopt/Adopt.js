@@ -43,7 +43,7 @@ class Adopt extends React.Component{
     }
 
     queueRandomPeople = () => {
-        if(this.state.user === this.state.peopleInQueue[0] && this.state.peopleInQueue.length < 6){
+        if(this.state.peopleInQueue.length < 6){
             let randomUser = store.people[Math.floor(Math.random()*Math.floor(store.people.length))]
             peopleApiCalls.postNewUserIntoQueue(randomUser)
             .catch(e=> this.setState({error : e }))
