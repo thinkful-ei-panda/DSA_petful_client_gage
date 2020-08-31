@@ -23,7 +23,7 @@ export default class PetInfo extends React.Component{
             story : '',
             type : '',
         },
-        user : '', 
+        next : false ,  
         peopleInQueue : [],
         handleQueueMovement : ()=>{},
         handleAdoption : () =>{}, 
@@ -49,7 +49,7 @@ export default class PetInfo extends React.Component{
                 <h4>Age:</h4> <span>{age}</span>
                 <h4>{`${name}'s story:`}</h4> <span>{story}</span>
                 <div>
-                    {this.props.user && 
+                    {this.props.next && 
                     <AdoptButton
                     handleQueueMovement={this.props.handleQueueMovement}
                     type={type}

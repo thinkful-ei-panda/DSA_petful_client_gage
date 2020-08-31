@@ -15,7 +15,6 @@ const peopleApiCalls = {
      * @param {{person : [NAME]}} person 
      */
     postNewUserIntoQueue(person){
-        console.log(process.env.REACT_APP_API_ADDRESS)
         return fetch(`${process.env.REACT_APP_API_ADDRESS}/people`, {
             method : 'POST',
             headers : {

@@ -32,7 +32,7 @@ export default class Adoption extends React.Component {
                 handleAdoption={this.props.handleAdoption}
                 cat={this.props.cat}
                 dog={this.props.dog}
-                user={this.props.user}
+                next={this.props.next}
                 handleQueueMovement={this.handleQueueMovement}
                 peopleInQueue={this.props.peopleInQueue}
               />
